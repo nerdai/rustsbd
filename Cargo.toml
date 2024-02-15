@@ -1,0 +1,10 @@
+[package]
+name = "rustsbd"
+version = "0.1.0"
+edition = "2021"
+authors = ["Val Andrei Fajardo <andrei@nerdai.io>", "Chi Ho Cheung <>"]
+description = "Rust Sentence Boudnary Disambiguation"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
