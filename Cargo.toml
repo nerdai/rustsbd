@@ -1,6 +1,6 @@
 [package]
 name = "rustsbd"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 authors = ["Val Andrei Fajardo <andrei@nerdai.io>", "Chi Ho Cheung <>"]
 description = "Rust Sentence Boudnary Disambiguation"
