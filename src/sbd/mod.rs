@@ -1,5 +1,5 @@
 pub struct Sbd {
-    pipeline: Vec<Box<dyn Process>>,
+    pub pipeline: Vec<Box<dyn Process>>,
 }
 
 pub trait Process {
@@ -28,8 +28,8 @@ impl Sbd {
         todo!()
     }
 
-    fn segment(&self, text: String) -> Vec<String> {
-        todo!()
+    pub fn segment(&self, text: String) -> Vec<String> {
+        text.split(" ").map(|s| {s.to_string()}).collect()
     }
 
     pub fn get_sentences(&self, text: String) -> Vec<String> {
@@ -50,7 +50,20 @@ mod tests {
                 Box::new(AbbreviationReplacer {}),
             ],
         };
-        // let result = sbd.segment(String::from("Hi!"));
+
         assert!(true);
+    }
+
+    #[test]
+    fn segment_function_works() {
+        let sbd = Sbd {
+            pipeline: vec![
+                Box::new(ListItemReplacer {}),
+                Box::new(AbbreviationReplacer {}),
+            ],
+        };
+
+        let result = sbd.segment(String::from("Hi! Hello World"));
+        assert_eq!(result, vec!["Hi!", "Hello", "World"]);
     }
 }
