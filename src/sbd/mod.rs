@@ -1,25 +1,9 @@
+pub mod replacers;
+
+use replacers::Process;
+
 pub struct Sbd {
     pub pipeline: Vec<Box<dyn Process>>,
-}
-
-pub trait Process {
-    fn process(&self, text: String) -> String;
-}
-
-pub struct ListItemReplacer {}
-
-impl Process for ListItemReplacer {
-    fn process(&self, mut text: String) -> String {
-        todo!()
-    }
-}
-
-pub struct AbbreviationReplacer {}
-
-impl Process for AbbreviationReplacer {
-    fn process(&self, text: String) -> String {
-        todo!()
-    }
 }
 
 impl Sbd {
@@ -41,6 +25,7 @@ impl Sbd {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use self::replacers::{AbbreviationReplacer, ListItemReplacer};
 
     #[test]
     fn it_works() {
