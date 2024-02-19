@@ -1,13 +1,7 @@
-struct Sbd;
-
-impl Sbd {
-    fn segment(&self, text: String) -> Vec<String> {
-        text.split(" ").map(|s| {s.to_string()}).collect()
-    }
-}
+use rustsbd::sbd::Sbd;
 
 fn main() {
-    let sbd = Sbd;
+    let sbd = Sbd{pipeline: vec![]};
 
     let result = sbd.segment(String::from("Hi! Hello World"));
     println!("{:?}", result);

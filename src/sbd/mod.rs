@@ -1,5 +1,5 @@
 pub struct Sbd {
-    pipeline: Vec<Box<dyn Process>>,
+    pub pipeline: Vec<Box<dyn Process>>,
 }
 
 pub trait Process {
@@ -28,7 +28,7 @@ impl Sbd {
         todo!()
     }
 
-    fn segment(&self, text: String) -> Vec<String> {
+    pub fn segment(&self, text: String) -> Vec<String> {
         text.split(" ").map(|s| {s.to_string()}).collect()
     }
 
