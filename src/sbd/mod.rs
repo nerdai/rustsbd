@@ -50,7 +50,20 @@ mod tests {
                 Box::new(AbbreviationReplacer {}),
             ],
         };
-        // let result = sbd.segment(String::from("Hi!"))
+
         assert!(true);
+    }
+
+    #[test]
+    fn segment_function_works() {
+        let sbd = Sbd {
+            pipeline: vec![
+                Box::new(ListItemReplacer {}),
+                Box::new(AbbreviationReplacer {}),
+            ],
+        };
+
+        let result = sbd.segment(String::from("Hi! Hello World"));
+        assert_eq!(result, vec!["Hi!", "Hello", "World"]);
     }
 }
