@@ -29,7 +29,7 @@ impl Sbd {
     }
 
     fn segment(&self, text: String) -> Vec<String> {
-        todo!()
+        text.split(" ").map(|s| {s.to_string()}).collect()
     }
 
     pub fn get_sentences(&self, text: String) -> Vec<String> {
@@ -50,7 +50,7 @@ mod tests {
                 Box::new(AbbreviationReplacer {}),
             ],
         };
-        // let result = sbd.segment(String::from("Hi!"));
+        // let result = sbd.segment(String::from("Hi!"))
         assert!(true);
     }
 }
