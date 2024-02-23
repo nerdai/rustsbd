@@ -1,6 +1,6 @@
 use core::fmt;
 
-#[derive(Default, Debug)]
+#[derive(Clone, Default, Debug)]
 pub struct Rule {
     pattern: String,
     replacement: String,
