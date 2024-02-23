@@ -62,7 +62,7 @@ checksum = "c08c74e62047bb2de4ff487b251e4a92e24f48745648451635cec7d591162d9f"
 
 [[package]]
 name = "rustsbd"
-version = "0.0.1"
+version = "0.0.1-alpha.2"
 dependencies = [
  "fancy-regex",
 ]
