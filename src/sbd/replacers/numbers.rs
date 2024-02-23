@@ -57,7 +57,6 @@ mod tests {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("$.50 and .50");
         text = numbers_replacer.process(text);
-        println!("{}", text);
         assert_eq!(text, "$∯50 and ∯50");
     }
 
@@ -66,7 +65,6 @@ mod tests {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("$3.test");
         text = numbers_replacer.process(text);
-        println!("{}", text);
         assert_eq!(text, "$3∯test");
     }
 
@@ -75,7 +73,6 @@ mod tests {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("\r1. Hello");
         text = numbers_replacer.process(text);
-        println!("{}", text);
         assert_eq!(text, "\r1∯ Hello");
     }
 
@@ -84,7 +81,6 @@ mod tests {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("1. Hello");
         text = numbers_replacer.process(text);
-        println!("{}", text);
         assert_eq!(text, "1∯ Hello");
     }
 
@@ -93,7 +89,6 @@ mod tests {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("01. Hello");
         text = numbers_replacer.process(text);
-        println!("{}", text);
         assert_eq!(text, "01∯ Hello");
     }
 }
