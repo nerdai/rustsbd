@@ -4,13 +4,15 @@ use core::fmt;
 pub struct Rule {
     pattern: String,
     replacement: String,
+    name: String,
 }
 
 impl Rule {
-    pub fn new(pattern: &str, replacement: &str) -> Self {
+    pub fn new(pattern: &str, replacement: &str, name: &str) -> Self {
         Self {
             pattern: String::from(pattern),
             replacement: String::from(replacement),
+            name: String::from(name),
         }
     }
 
@@ -21,6 +23,9 @@ impl Rule {
     pub fn replacement(&self) -> &str {
         &self.replacement
     }
+    pub fn name(&self) -> &str {
+        &self.name
+    }
 }
 
 impl fmt::Display for Rule {
@@ -28,4 +33,3 @@ impl fmt::Display for Rule {
         write!(f, "({}, {})", self.pattern, self.replacement)
     }
 }
-    
