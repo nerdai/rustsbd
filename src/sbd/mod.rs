@@ -1,6 +1,6 @@
 pub mod replacers;
 
-use replacers::{abbreviation::AbbreviationReplacer, list_item::ListItemReplacer, Process};
+use replacers::Process;
 
 pub struct Sbd {
     pub pipeline: Vec<Box<dyn Process>>,
@@ -24,8 +24,8 @@ impl Sbd {
 
 #[cfg(test)]
 mod tests {
-    use self::{AbbreviationReplacer, ListItemReplacer};
     use super::*;
+    use crate::sbd::replacers::{abbreviation::AbbreviationReplacer, list_item::ListItemReplacer};
 
     #[test]
     fn it_works() {
