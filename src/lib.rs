@@ -20,7 +20,8 @@ mod tests {
     fn private_fields() {
         let rule = Rule::new(
             &String::from("Hello")[..],
-            &String::from("World")[..]
+            &String::from("World")[..],
+            &String::from("dummy")[..],
         );
         assert_eq!(rule.pattern(), "Hello");
         assert_eq!(rule.replacement(), "World")
