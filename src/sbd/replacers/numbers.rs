@@ -2,7 +2,6 @@ use core::fmt;
 
 use super::Process;
 use crate::utils::Rule;
-use fancy_regex::Regex;
 
 #[derive(Debug)]
 pub struct NumbersReplacer {
@@ -24,13 +23,8 @@ impl fmt::Display for NumbersReplacer {
 }
 
 impl Process for NumbersReplacer {
-    fn process(&self, mut text: String) -> String {
-        for rule in self.rules.iter() {
-            let re = Regex::new(rule.pattern()).unwrap();
-            let result = re.replace_all(&text[..], rule.replacement());
-            text = String::from(result);
-        }
-        text
+    fn rules_vec(&self) -> Vec<Rule> {
+        self.rules.to_vec()
     }
 }
 
