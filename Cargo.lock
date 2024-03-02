@@ -89,6 +89,7 @@ dependencies = [
 [[package]]
 name = "rustsbd_macros"
 version = "0.1.0"
+source = "git+ssh://git@github.com/nerdai/rustsbd_macros.git#d4d489e50c8da88cf22dccce5e6800fecb970b27"
 dependencies = [
  "fancy-regex",
  "quote",
