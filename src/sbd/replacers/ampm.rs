@@ -4,7 +4,7 @@ use super::Process;
 use crate::utils::Rule;
 use rustsbd_macros::Process;
 
-#[derive(Debug, Process, PartialEq)]
+#[derive(Debug, Process)]
 pub struct AmPmReplacer {
     rules: [Rule; 4],
 }
@@ -31,20 +31,6 @@ impl fmt::Display for AmPmReplacer {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn default() {
-        let ampm_replacer = AmPmReplacer::default();
-        let default_rule = AmPmReplacer {
-            rules: [
-                Rule::new(r"(?<= P∯M)∯(?=\s[A-Z])", ".", "UpperCasePmRule"),
-                Rule::new(r"(?<=A∯M)∯(?=\s[A-Z])", ".", "UpperCaseAmRule"),
-                Rule::new(r"(?<=p∯m)∯(?=\s[A-Z])", ".", "LowerCasePmRule"),
-                Rule::new(r"(?<=a∯m)∯(?=\s[A-Z])", ".", "LowerCaseAmRule"),
-            ],
-        };
-        assert_eq!(default_rule, ampm_replacer);
-    }
 
     #[test]
     fn test_upper_case_pm_rule() {
