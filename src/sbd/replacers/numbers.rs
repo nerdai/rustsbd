@@ -48,9 +48,17 @@ mod tests {
             rules: [
                 Rule::new(r"\.(?=\d)", "∯", "PeriodBeforeNumberRule"),
                 Rule::new(r"(?<=\d)\.(?=\S)", "∯", "NumberAfterPeriodBeforeLetterRule"),
-                Rule::new(r"(?<=\r\d)\.(?=(\s\S)|\))", "∯", "NewLineNumberPeriodSpaceLetterRule"),
+                Rule::new(
+                    r"(?<=\r\d)\.(?=(\s\S)|\))",
+                    "∯",
+                    "NewLineNumberPeriodSpaceLetterRule",
+                ),
                 Rule::new(r"(?<=^\d)\.(?=(\s\S)|\))", "∯", "StartLineNumberPeriodRule"),
-                Rule::new(r"(?<=^\d\d)\.(?=(\s\S)|\))", "∯", "StartLineTwoDigitNumberPeriodRule"),
+                Rule::new(
+                    r"(?<=^\d\d)\.(?=(\s\S)|\))",
+                    "∯",
+                    "StartLineTwoDigitNumberPeriodRule",
+                ),
             ],
         };
         assert_eq!(default_rule, numbers_replacer);
