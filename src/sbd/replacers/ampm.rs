@@ -2,8 +2,9 @@ use core::fmt;
 
 use super::Process;
 use crate::utils::Rule;
+use rustsbd_macros::Process;
 
-#[derive(Debug)]
+#[derive(Debug, Process, PartialEq)]
 pub struct AmPmReplacer {
     rules: [Rule; 4],
 }
@@ -27,12 +28,6 @@ impl fmt::Display for AmPmReplacer {
     }
 }
 
-impl Process for AmPmReplacer {
-    fn rules_vec(&self) -> Vec<Rule> {
-        self.rules.to_vec()
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -40,7 +35,15 @@ mod tests {
     #[test]
     fn default() {
         let ampm_replacer = AmPmReplacer::default();
-        println!("{:?}", ampm_replacer);
+        let default_rule = AmPmReplacer {
+            rules: [
+                Rule::new(r"(?<= P∯M)∯(?=\s[A-Z])", ".", "UpperCasePmRule"),
+                Rule::new(r"(?<=A∯M)∯(?=\s[A-Z])", ".", "UpperCaseAmRule"),
+                Rule::new(r"(?<=p∯m)∯(?=\s[A-Z])", ".", "LowerCasePmRule"),
+                Rule::new(r"(?<=a∯m)∯(?=\s[A-Z])", ".", "LowerCaseAmRule"),
+            ],
+        };
+        assert_eq!(default_rule, ampm_replacer);
     }
 
     #[test]

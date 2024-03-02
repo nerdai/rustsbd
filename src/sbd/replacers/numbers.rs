@@ -4,7 +4,7 @@ use super::Process;
 use crate::utils::Rule;
 use rustsbd_macros::Process;
 
-#[derive(Debug, Process)]
+#[derive(Debug, Process, PartialEq)]
 pub struct NumbersReplacer {
     rules: [Rule; 5],
 }
@@ -44,7 +44,16 @@ mod tests {
     #[test]
     fn default() {
         let numbers_replacer = NumbersReplacer::default();
-        println!("{:?}", numbers_replacer);
+        let default_rule = NumbersReplacer {
+            rules: [
+                Rule::new(r"\.(?=\d)", "∯", "PeriodBeforeNumberRule"),
+                Rule::new(r"(?<=\d)\.(?=\S)", "∯", "NumberAfterPeriodBeforeLetterRule"),
+                Rule::new(r"(?<=\r\d)\.(?=(\s\S)|\))", "∯", "NewLineNumberPeriodSpaceLetterRule"),
+                Rule::new(r"(?<=^\d)\.(?=(\s\S)|\))", "∯", "StartLineNumberPeriodRule"),
+                Rule::new(r"(?<=^\d\d)\.(?=(\s\S)|\))", "∯", "StartLineTwoDigitNumberPeriodRule"),
+            ],
+        };
+        assert_eq!(default_rule, numbers_replacer);
     }
 
     #[test]
