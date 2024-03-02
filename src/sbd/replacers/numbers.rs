@@ -42,12 +42,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn default() {
-        let numbers_replacer = NumbersReplacer::default();
-        println!("{:?}", numbers_replacer);
-    }
-
-    #[test]
     fn test_period_before_number_rule() {
         let numbers_replacer = NumbersReplacer::default();
         let mut text = String::from("$.50 and .50");
