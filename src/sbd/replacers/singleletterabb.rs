@@ -1,10 +1,10 @@
 use core::fmt;
 
-use super::Process;
+use super::{FmtDisplay, Process};
 use crate::utils::Rule;
-use rustsbd_macros::Process;
+use rustsbd_macros::{FmtDisplay, Process};
 
-#[derive(Debug, Process)]
+#[derive(Debug, FmtDisplay, Process)]
 pub struct SingleLetterAbbReplacer {
     rules: [Rule; 2],
 }
@@ -21,12 +21,6 @@ impl Default for SingleLetterAbbReplacer {
                 Rule::new(r"(?<=\s[A-Z])\.(?=,?\s)", "∯", "SingleUpperCaseLetterRule"),
             ],
         }
-    }
-}
-
-impl fmt::Display for SingleLetterAbbReplacer {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:?}", self.rules)
     }
 }
 

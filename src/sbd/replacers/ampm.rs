@@ -1,10 +1,10 @@
 use core::fmt;
 
-use super::Process;
+use super::{FmtDisplay, Process};
 use crate::utils::Rule;
-use rustsbd_macros::Process;
+use rustsbd_macros::{FmtDisplay, Process};
 
-#[derive(Debug, Process)]
+#[derive(Debug, FmtDisplay, Process)]
 pub struct AmPmReplacer {
     rules: [Rule; 4],
 }
@@ -19,12 +19,6 @@ impl Default for AmPmReplacer {
                 Rule::new(r"(?<=a∯m)∯(?=\s[A-Z])", ".", "LowerCaseAmRule"),
             ],
         }
-    }
-}
-
-impl fmt::Display for AmPmReplacer {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:?}", self.rules)
     }
 }
 
