@@ -1,0 +1,15 @@
+---
+default_language_version:
+  python: python3
+
+repos:
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: master
+    hooks:
+      - id: fmt
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+      - id: clippy
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+      - id: cargo-check
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+    entry: bash -c 'cd rustsbd'
