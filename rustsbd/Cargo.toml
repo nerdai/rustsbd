@@ -7,4 +7,4 @@ description = "Rust Sentence Boudnary Disambiguation"
 
 [dependencies]
 fancy-regex = "0.13.0"
-rustsbd_macros = { git = "https://github.com/nerdai/rustsbd_macros.git" }
+rustsbd_macros = { path = "../rustsbd_macros" }
