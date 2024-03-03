@@ -1,10 +1,9 @@
+use super::{FmtDisplay, Process};
 use core::fmt;
-
-use super::Process;
 use crate::utils::Rule;
-use rustsbd_macros::Process;
+use rustsbd_macros::{Process, FmtDisplay};
 
-#[derive(Debug, Process)]
+#[derive(Debug, FmtDisplay, Process)]
 pub struct NumbersReplacer {
     rules: [Rule; 5],
 }
@@ -28,12 +27,6 @@ impl Default for NumbersReplacer {
                 ),
             ],
         }
-    }
-}
-
-impl fmt::Display for NumbersReplacer {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:?}", self.rules)
     }
 }
 

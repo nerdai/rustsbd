@@ -5,6 +5,7 @@ pub mod numbers;
 pub mod singleletterabb;
 
 use crate::utils::Rule;
+use core::fmt;
 use fancy_regex::Regex;
 
 pub trait Process {
@@ -18,4 +19,8 @@ pub trait Process {
         }
         text
     }
+}
+
+pub trait FmtDisplay {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result;
 }
