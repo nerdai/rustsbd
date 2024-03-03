@@ -1,0 +1,16 @@
+[package]
+name = "rustsbd_macros"
+version = "0.1.0"
+authors = ["Val Andrei Fajardo <andrei@nerdai.io>", "Chi Ho Cheung <>"]
+description = "RustSBD Macros crate"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+proc-macro = true
+
+[dependencies]
+fancy-regex = "0.13.0"
+quote = "1.0.35"
+syn = "2.0.51"

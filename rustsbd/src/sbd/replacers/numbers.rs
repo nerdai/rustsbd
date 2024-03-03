@@ -1,7 +1,7 @@
 use super::{FmtDisplay, Process};
-use core::fmt;
 use crate::utils::Rule;
-use rustsbd_macros::{Process, FmtDisplay};
+use core::fmt;
+use rustsbd_macros::{FmtDisplay, Process};
 
 #[derive(Debug, FmtDisplay, Process)]
 pub struct NumbersReplacer {
