@@ -1,0 +1,23 @@
+---
+repos:
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: master
+    hooks:
+      - id: fmt
+        name: "rustsbd-fmt"
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+      - id: fmt
+        name: "rustsbd-macros-fmt"
+        args: ["--manifest-path", "./rustsbd_macros/Cargo.toml"]
+      - id: clippy
+        name: "rustsbd-clippy"
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+      - id: clippy
+        name: "rustsbd-macros-clippy"
+        args: ["--manifest-path", "./rustsbd_macros/Cargo.toml"]
+      - id: cargo-check
+        name: "rustsbd-check"
+        args: ["--manifest-path", "./rustsbd/Cargo.toml"]
+      - id: cargo-check
+        name: "rustsbd-macros-check"
+        args: ["--manifest-path", "./rustsbd_macros/Cargo.toml"]
