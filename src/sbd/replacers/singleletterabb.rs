@@ -13,8 +13,12 @@ impl Default for SingleLetterAbbReplacer {
     fn default() -> Self {
         Self {
             rules: [
-                Rule::new(r"(?<=^[A-Z])\.(?=\s)", "∯", "SingleUpperCaseLetterAtStartOfLineRule"),
-                Rule::new(r"(?<=\s[A-Z])\.(?=,?\s)", "∯", "SingleUpperCaseLetterRule")
+                Rule::new(
+                    r"(?<=^[A-Z])\.(?=\s)",
+                    "∯",
+                    "SingleUpperCaseLetterAtStartOfLineRule",
+                ),
+                Rule::new(r"(?<=\s[A-Z])\.(?=,?\s)", "∯", "SingleUpperCaseLetterRule"),
             ],
         }
     }
