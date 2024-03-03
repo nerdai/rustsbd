@@ -2,6 +2,7 @@ pub mod abbreviation;
 pub mod ampm;
 pub mod list_item;
 pub mod numbers;
+pub mod singleletterabb;
 
 use crate::utils::Rule;
 use fancy_regex::Regex;
