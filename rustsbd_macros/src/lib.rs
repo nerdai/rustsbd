@@ -19,11 +19,10 @@ fn impl_process_macro(input: &DeriveInput) -> TokenStream {
             fn rules_vec(&self) -> Vec<Rule> {
                 self.rules.to_vec()
             }
-        }   
+        }
     };
     gen.into()
 }
-
 
 #[proc_macro_derive(FmtDisplay)]
 pub fn display_macro_derive(input: TokenStream) -> TokenStream {
@@ -40,7 +39,7 @@ fn impl_display_macro(input: &DeriveInput) -> TokenStream {
             fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
                 write!(f, "{:?}", self.rules)
             }
-        }   
+        }
     };
     gen.into()
 }
